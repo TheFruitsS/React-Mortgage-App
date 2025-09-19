@@ -14,7 +14,12 @@ export default function App() {
   const [loanTerm, setLoanTerm] = useState('');
   const [deposit, setDeposit] = useState('');
   const [mortgageType, setMortgageType] = useState('repayment'); // 'repayment' or 'interest-only'
-  
+  const [isFirstTimeBuyer, setIsFirstTimeBuyer] = useState(true);
+  const [rateType, setRateType] = useState('fixed'); // 'fixed' or 'flexible'
+  const [showRateInfo, setShowRateInfo] = useState(false);
+  const [showMortgageInfo, setShowMortgageInfo] = useState(false);
+  const [showBuyerInfo, setShowBuyerInfo] = useState(false);
+
   const handleNext = () => setStep((prev) => Math.min(prev + 1, 3));
   const handleBack = () => setStep((prev) => Math.max(prev - 1, 1));
   const handleCompare = () => setStep(3);
@@ -44,6 +49,16 @@ export default function App() {
             setDeposit={setDeposit}
             mortgageType={mortgageType}
             setMortgageType={setMortgageType}
+            isFirstTimeBuyer={isFirstTimeBuyer}
+            setIsFirstTimeBuyer={setIsFirstTimeBuyer}
+            rateType={rateType}
+            setRateType={setRateType}
+            showRateInfo={showRateInfo}
+            setShowRateInfo={setShowRateInfo}
+            showMortgageInfo={showMortgageInfo}
+            setShowMortgageInfo={setShowMortgageInfo}
+            showBuyerInfo={showBuyerInfo}
+            setShowBuyerInfo={setShowBuyerInfo}
           />
         )}
         {step === 2 && <SummaryPanel monthlyPayment={monthlyPayment} />}
