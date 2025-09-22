@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import cadBackground from './assets/cad-green-bg.png'; // ✅ Import your background image
 import Breadcrumb from './components/Breadcrumb';
 import StepProgress from './components/StepProgress';
 import IntroHeader from './components/IntroHeader';
@@ -13,9 +14,9 @@ export default function App() {
   const [interestRate, setInterestRate] = useState('');
   const [loanTerm, setLoanTerm] = useState('');
   const [deposit, setDeposit] = useState('');
-  const [mortgageType, setMortgageType] = useState('repayment'); // 'repayment' or 'interest-only'
+  const [mortgageType, setMortgageType] = useState('repayment');
   const [isFirstTimeBuyer, setIsFirstTimeBuyer] = useState(true);
-  const [rateType, setRateType] = useState('fixed'); // 'fixed' or 'flexible'
+  const [rateType, setRateType] = useState('fixed');
   const [showRateInfo, setShowRateInfo] = useState(false);
   const [showMortgageInfo, setShowMortgageInfo] = useState(false);
   const [showBuyerInfo, setShowBuyerInfo] = useState(false);
@@ -25,56 +26,66 @@ export default function App() {
   const handleCompare = () => setStep(3);
 
   const monthlyPayment = calculateMonthlyPayment(
-  Number(loanAmount) - Number(deposit),
-  Number(interestRate),
-  Number(loanTerm),
-  mortgageType);
-
+    Number(loanAmount) - Number(deposit),
+    Number(interestRate),
+    Number(loanTerm),
+    mortgageType
+  );
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <Breadcrumb />
-      <StepProgress currentStep={step} />
-      <IntroHeader />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {step === 1 && (
-          <LoanForm
-            loanAmount={loanAmount}
-            setLoanAmount={setLoanAmount}
-            interestRate={interestRate}
-            setInterestRate={setInterestRate}
-            loanTerm={loanTerm}
-            setLoanTerm={setLoanTerm}
-            deposit={deposit}
-            setDeposit={setDeposit}
-            mortgageType={mortgageType}
-            setMortgageType={setMortgageType}
-            isFirstTimeBuyer={isFirstTimeBuyer}
-            setIsFirstTimeBuyer={setIsFirstTimeBuyer}
-            rateType={rateType}
-            setRateType={setRateType}
-            showRateInfo={showRateInfo}
-            setShowRateInfo={setShowRateInfo}
-            showMortgageInfo={showMortgageInfo}
-            setShowMortgageInfo={setShowMortgageInfo}
-            showBuyerInfo={showBuyerInfo}
-            setShowBuyerInfo={setShowBuyerInfo}
-          />
-        )}
-        {step === 2 && <SummaryPanel monthlyPayment={monthlyPayment} />}
-        {step === 3 && (
-          <div className="bg-white p-6 rounded shadow">
-            <h2 className="text-lg font-semibold mb-4">Compare Options</h2>
-            <p className="text-gray-700">Comparison view coming soon...</p>
-          </div>
-        )}
+    <div
+      style={{
+        backgroundImage: `url(${cadBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+      className="min-h-screen"
+    >
+      <div className="bg-white/0 backdrop-blur-sm border border-emerald-100/10 ring-1 ring-emerald-100/10 p-6 max-w-7xl mx-auto rounded-xl shadow-sm">
+        <Breadcrumb />
+        <StepProgress currentStep={step} />
+        <IntroHeader />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {step === 1 && (
+            <LoanForm
+              loanAmount={loanAmount}
+              setLoanAmount={setLoanAmount}
+              interestRate={interestRate}
+              setInterestRate={setInterestRate}
+              loanTerm={loanTerm}
+              setLoanTerm={setLoanTerm}
+              deposit={deposit}
+              setDeposit={setDeposit}
+              mortgageType={mortgageType}
+              setMortgageType={setMortgageType}
+              isFirstTimeBuyer={isFirstTimeBuyer}
+              setIsFirstTimeBuyer={setIsFirstTimeBuyer}
+              rateType={rateType}
+              setRateType={setRateType}
+              showRateInfo={showRateInfo}
+              setShowRateInfo={setShowRateInfo}
+              showMortgageInfo={showMortgageInfo}
+              setShowMortgageInfo={setShowMortgageInfo}
+              showBuyerInfo={showBuyerInfo}
+              setShowBuyerInfo={setShowBuyerInfo}
+            />
+          )}
+          {step === 2 && <SummaryPanel monthlyPayment={monthlyPayment} />}
+          {step === 3 && (
+            <div className="bg-white p-6 rounded shadow">
+              <h2 className="text-lg font-semibold mb-4">Compare Options</h2>
+              <p className="text-gray-700">Comparison view coming soon...</p>
+            </div>
+          )}
+        </div>
+        <ControlBar
+          onNext={handleNext}
+          onBack={handleBack}
+          onCompare={handleCompare}
+          currentStep={step}
+        />
       </div>
-      <ControlBar
-        onNext={handleNext}
-        onBack={handleBack}
-        onCompare={handleCompare}
-        currentStep={step}
-      />
     </div>
   );
 }
