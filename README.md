@@ -1,7 +1,3 @@
-Let’s craft a solid `README.md` for your GitHub repo, Dimitar. It’ll reflect the current state of your mortgage calculator project—modular, educational, and user-friendly—with room to grow. Here's a clean, professional scaffold:
-
----
-
 🏡 Mortgage Calculator App
 
 A modular React-based mortgage calculator that helps users estimate monthly payments, compare mortgage types, and understand repayment strategies. Built with clarity, UX precision, and extensibility in mind.
