@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fd6feb59.css",
+    "main.js": "/static/js/main.0817aa3f.js",
+    "static/media/cad-green-bg.png": "/static/media/cad-green-bg.24026e06a733a053ed94.png",
+    "index.html": "/index.html",
+    "main.fd6feb59.css.map": "/static/css/main.fd6feb59.css.map",
+    "main.0817aa3f.js.map": "/static/js/main.0817aa3f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fd6feb59.css",
+    "static/js/main.0817aa3f.js"
+  ]
+}
