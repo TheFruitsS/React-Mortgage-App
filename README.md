@@ -1,89 +1,77 @@
-Let’s craft a solid `README.md` for your GitHub repo, Dimitar. It’ll reflect the current state of your mortgage calculator project—modular, educational, and user-friendly—with room to grow. Here's a clean, professional scaffold:
 
----
+🏡 Mortgage Comparison Tool
 
-🏡 Mortgage Calculator App
-
-A modular React-based mortgage calculator that helps users estimate monthly payments, compare mortgage types, and understand repayment strategies. Built with clarity, UX precision, and extensibility in mind.
+A responsive, user-friendly mortgage comparison app built with React. Designed to help users explore repayment scenarios across providers with clarity, transparency, and visual insight.
 
 ---
 
 🚀 Features
 
-- 💰 Monthly Payment Estimator  
-  Calculates payments based on loan amount, deposit, interest rate, term, and mortgage type.
+- **Loan Form Inputs**  
+  - Loan Amount, Deposit, Interest Rate, Term  
+  - Buyer Status (First-Time Buyer / Moving Home)  
+  - Interest Rate Type (Fixed / Flexible)  
+  - Mortgage Type (Repayment / Interest-Only)
 
-- 🔍 Compare Mortgage Types 
-  Side-by-side breakdown of repayment vs interest-only options, including total cost and interest paid.
+- **Provider Comparison Panel**  
+  - Calculates Monthly Payment, Total Repayment, and Total Interest  
+  - Sorts providers by selected metric  
+  - Displays enriched provider cards with contextual info
 
-- ℹ️ Expandable Mortgage Info 
-  Interactive “i” icon reveals detailed explanations of fixed vs flexible rates and mortgage strategies.
+- **Repayment Chart**  
+  - Bar chart visualizing total repayment across providers  
+  - Responsive and styled with Tailwind  
+  - Tooltip formatting for currency values
 
-- 🧩 Modular Architecture
-  Clean separation of logic (`calcHelpers.js`), UI components, and state management via controlled inputs.
+- **UX Enhancements**  
+  - Inline “Info only” badges for non-calculated fields  
+  - Expandable info panels for Buyer Status, Rate Type, and Mortgage Type  
+  - Disclaimer block clarifying calculation scope  
+  - Animated title banner and clean layout
 
 ---
 
 📦 Tech Stack
 
-- React (functional components)
-- Tailwind CSS (utility-first styling)
-- `react-currency-input-field` (for formatted currency inputs)
-- Modular helper functions for financial logic
+- **React** – UI framework  
+- **Tailwind CSS** – Utility-first styling  
+- **Chart.js + react-chartjs-2** – Data visualization  
+- **react-currency-input-field** – Formatted currency inputs
 
 ---
 
-🧠 How It Works
+📁 Folder Structure Highlights
 
-1. **Step 1: Input Loan Details**  
-   Users enter loan amount, deposit, interest rate, term, and mortgage type. Controlled inputs sync with app state.
-
-2. **Step 2: View Summary**  
-   Displays formatted monthly payment using `toLocaleString()` and contextual info.
-
-3. **Step 3: Compare Options**  
-   Shows repayment vs interest-only breakdown, with expandable info and simulated examples.
-
----
-
-📁 Folder Structure
-
-```
+```plaintext
 src/
+├── assets/
+│   └── cad-green-bg.png
 ├── components/
 │   ├── LoanForm.jsx
-│   ├── SummaryPanel.jsx
 │   ├── ComparePanel.jsx
-│   ├── MortgageInfoToggle.jsx
-│   ├── ControlBar.jsx
-│   └── Breadcrumb.jsx
+│   └── ProviderChart.jsx
+├── styles/
+│   └── index.css
 ├── utils/
 │   └── calcHelpers.js
 ├── App.jsx
-└── index.js
+├── tailwind.config.js
+└── README.md
 ```
 
 ---
 
-🧪 Run Locally
+🛡️ Disclaimer
+
+> Buyer Status, Interest Rate Type, and Mortgage Type are shown for guidance only and are **not used in repayment calculations**. This tool is for demonstrative purposes and may not reflect actual eligibility or offers. Always consult with a mortgage advisor for personalized advice.
+
+---
+🧪 Getting Started
 
 ```bash
-npm install
+npm i 
+  to install the package you want 
 npm start
+  to start a local server
 ```
-
-Then open `http://localhost:3000` in your browser.
-
----
-
-📈 Future Enhancements
-
-- Amortization chart (monthly breakdown)
-- Validation and error handling
-- API integration for real-time rates
-- Export to PDF or shareable summary
-- Toggle buttons for info
-- Comparing section
----
-
 
